@@ -135,6 +135,12 @@ while not done:
  
     # Draw all the spites
     all_sprites_list.draw(screen)
+
+    # Draw the score in the top right corner
+    font = pygame.font.SysFont(None, 36)
+    score_text = font.render(f"Score: {score}", True, (0, 0, 0))
+    text_rect = score_text.get_rect(topright=(screen_width - 10, 10))
+    screen.blit(score_text, text_rect)
  
     # Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
