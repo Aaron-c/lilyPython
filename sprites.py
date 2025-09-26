@@ -131,7 +131,6 @@ while not done:
     # Check the list of collisions.
     for block in blocks_hit_list:
         score += 1
-        print(score)
  
     # Draw all the spites
     all_sprites_list.draw(screen)
