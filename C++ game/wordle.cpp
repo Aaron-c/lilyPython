@@ -461,15 +461,8 @@ int main(){
     set <string> wordleWords = getWordleWords();
     set <string> wordleAnswers = getWordleAnswers();
     //the guess and answers
-    vector <string> doublesA;
-    vector <string> triplesA;
-    vector <string> doublesG;
-    vector <string> triplesG;
-    vector <string> words;
-    vector <string> answers;
-    vector <string> alphabets;
-    vector <string> wordsFound;
-    vector <string> completed;
+    vector <string> doublesA, triplesA, doublesG, triplesG, words, answers, alphabets, wordsFound, completed, eggWords=getWords();
+
 
     //getting random
     srand(time(0));
@@ -500,6 +493,11 @@ int main(){
     //setting answer
     for (int i=0; i<numWordles; i++){
         answers.push_back(randomWord(wordleAnswers));
+        for (int j=0; j<eggWords.size(); j++){
+            while (answers[i]==eggWords[j]){
+                answers.push_back(randomWord(wordleAnswers));
+            }
+        }
         words.push_back("");
         doublesA.push_back("");
         triplesA.push_back("");
@@ -514,8 +512,10 @@ int main(){
     //loop to play multiple times
     do{
         //showing keyboard
-        cout<<"\n";
-        cout<< alphabet;
+        for (int i=0; i<numWordles; i++){
+            cout<<"\n\n";
+            cout<<alphabet;
+        }
         
         //loop for guesses
         for (int guessNum=1; guessNum<=numWordles+5; guessNum++) {
