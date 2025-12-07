@@ -65,6 +65,16 @@ set <string> getWordleAnswers() {
     return newWords;                       // Return the complete set
 }
 
+//to see if a string is in a string vector
+bool isInString(vector <string> list, string word){
+    for (int i=0; i<list.size(); i++){
+        if (list[i]==word){
+            return true;
+        }
+    }
+    return false;
+}
+
 //secret
 vector <string> getWords(){
     vector <string> secretWords;
@@ -547,7 +557,9 @@ int main(){
             for (int i=0; i<numWordles; i++){
                 hasMultiple(guess, doublesG[i], triplesG[i]);
                 if (numWordles!=completed.size()){
-                    greens=inWord(guess, answers[i], alphabets[i], words[i], won, i, completed, doublesA[i], triplesA[i], doublesG[i], triplesG[i]);
+                    if (!isInString(completed, answers[i])){
+                        greens=inWord(guess, answers[i], alphabets[i], words[i], won, i, completed, doublesA[i], triplesA[i], doublesG[i], triplesG[i]);
+                    }
                 }
                 inCompleted=0;
                 cout<<"\n"<<words[i]<<endl;
