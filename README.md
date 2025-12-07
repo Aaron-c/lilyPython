@@ -42,6 +42,7 @@ The point of the game is to guess all the words while using the same guess word 
         **Gray** Letter is not in the word
 *   **Ending** The game ends when the user has successfully guessed all of the words or has run out of guesses
 example start with 4 wordles
+
 ![image info](./image.png)
 
 ## 🛠️ Building from Source (For Developers)
